@@ -1,5 +1,13 @@
 # AngularCources
 
+## Folder Structure
+
+'/authentication' - Folder for login, logout, profile and everything that is related to user
+'/layout' - Folder for global layout components like header, footer, breadcrumbs
+'/pages' - Set of page components assigned to routes
+'/shared' - Folder for shared components like modals, tabs, btns etc
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
 
 ## Development server
