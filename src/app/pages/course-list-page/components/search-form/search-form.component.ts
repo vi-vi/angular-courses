@@ -12,4 +12,8 @@ export class SearchFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  sendValues( value: string ) {
+    console.log( value );
+  }
+
 }

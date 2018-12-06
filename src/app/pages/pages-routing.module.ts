@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CourseListPageComponent } from './course-list-page/course-list-page.component'
 import { LoginPageComponent } from './login-page/login-page.component'
+import { CourseListPageModule, CourseListPageComponent } from './course-list-page/course-list-page.module'
 
 const appRoutes: Routes = [
   { path: 'courses', component: CourseListPageComponent},
@@ -11,10 +11,12 @@ const appRoutes: Routes = [
 // Set of page components assigned to routes
 @NgModule({
   declarations: [
-    CourseListPageComponent,
     LoginPageComponent
   ],
-  imports: [ RouterModule.forRoot(appRoutes) ],
+  imports: [
+    RouterModule.forRoot(appRoutes),
+    CourseListPageModule
+  ],
   exports: [ RouterModule ]
 })
 
