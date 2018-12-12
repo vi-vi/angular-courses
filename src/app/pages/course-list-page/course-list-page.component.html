@@ -1,3 +1,10 @@
-<p>
-  course-list-page works!
-</p>
+<div class="search-block clearfix">
+  <app-search-form></app-search-form>
+  <app-course-add></app-course-add>
+</div>
+<app-course-item
+  *ngFor="let course of courses"
+  [courseItem]="course"
+  (deleteEvent)="deleteCourse($event)">
+</app-course-item>
+<app-load-more></app-load-more>

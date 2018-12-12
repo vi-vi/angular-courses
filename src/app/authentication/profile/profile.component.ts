@@ -6,7 +6,7 @@ import { IProfile } from './profile-interface'
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit, IProfile {
+export class ProfileComponent implements OnInit {
 
   constructor(userInf: IProfile) {
     console.log(userInf)

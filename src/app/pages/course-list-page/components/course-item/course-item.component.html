@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-header">
+    {{courseItem.title}}
+  </div>
+  <div class="card-body clearfix">
+    <div class="float-left">
+      <p>creationDate: {{courseItem.creationDate}}</p>
+      <p>duration: {{courseItem.duration}}</p>
+      <p>description: {{courseItem.description}}</p>
+    </div>
+    <div class="float-right">
+      <app-course-edit></app-course-edit>
+      <button class="btn btn-dark my-2" type="button" (click)="deleteHandler(courseItem.id)">Remove</button>
+    </div>
+  </div>
+</div>
