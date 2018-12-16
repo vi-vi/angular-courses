@@ -7,12 +7,20 @@ import { IProfile } from './profile-interface'
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  userInf: IProfile;
 
-  constructor(userInf: IProfile) {
-    console.log(userInf)
+  constructor() {
   }
 
   ngOnInit() {
+    // mocked data
+    this.userInf = {
+      id: 1,
+      firstName: 'Sherlock',
+      lastName: 'Holmes'
+    }
+
+    console.log('ProfileComponent', this.userInf)
   }
 
 }
