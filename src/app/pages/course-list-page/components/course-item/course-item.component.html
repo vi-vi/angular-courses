@@ -1,11 +1,17 @@
-<div class="card">
+<div class="card"  [borderColor]="courseItem.creationDate">
   <div class="card-header">
-    {{courseItem.title}}
+    {{courseItem.title  | uppercase }}
+    <div
+      class="star"
+      *ngIf="courseItem.topRated"
+      [ngClass]="isActive ? 'active' : 'default'"
+      (click)="activeStar()">
+    </div>
   </div>
   <div class="card-body clearfix">
     <div class="float-left">
-      <p class="date">creationDate: {{courseItem.creationDate}}</p>
-      <p class="duration">duration: {{courseItem.duration}}</p>
+      <p class="date">creationDate: {{courseItem.creationDate | date}}</p>
+      <p class="duration">duration: {{courseItem.duration | duration}}</p>
       <p class="description">description: {{courseItem.description}}</p>
     </div>
     <div class="float-right">

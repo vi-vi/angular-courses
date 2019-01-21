@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ICourseItem } from './course-item-interface'
+import { ICourseItem } from './course-item-interface';
+
 
 @Component({
   selector: 'app-course-item',
@@ -11,9 +12,17 @@ export class CourseItemComponent implements OnInit {
   @Input() courseItem: ICourseItem;
   @Output() deleteEvent = new EventEmitter<number>();
 
-  constructor() { }
+  constructor() {
+ }
 
   ngOnInit() {
+
+  }
+
+  isActive: boolean = false;
+
+  activeStar(e){
+    this.isActive = !this.isActive;
   }
 
   deleteHandler(id: number) {

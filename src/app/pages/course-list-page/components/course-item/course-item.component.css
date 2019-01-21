@@ -1,3 +1,19 @@
 .card {
   margin-bottom: 50px;
 }
+
+.star {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+}
+
+.active {
+  background-image: url('../../../../../assets/active-star.png');
+  background-size: cover;
+}
+
+.default {
+  background-image: url('../../../../../assets/empty-star.png');
+  background-size: cover;
+}
