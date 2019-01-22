@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IProfile } from './profile-interface'
+import { IProfile } from './profile-interface';
 import { ProfileComponent } from './profile.component';
 
 describe('ProfileComponent', () => {

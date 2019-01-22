@@ -1,6 +1,6 @@
-<div class="card"  [borderColor]="courseItem.creationDate">
+<div class="card" [appBorderColor]="courseItem.creationDate">
   <div class="card-header">
-    {{courseItem.title  | uppercase }}
+    {{courseItem.title | uppercase }}
     <div
       class="star"
       *ngIf="courseItem.topRated"

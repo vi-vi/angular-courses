@@ -5,7 +5,7 @@ import { DatePipe } from '@angular/common';
     name: 'duration',
 })
 export class DurationPipe implements PipeTransform {
-    transform(value: number) {
-      return (value > 59) ? `${value/60 | 0}h ${value%60}min` : `${value}min`
-    }
+  transform(value: number) {
+    return (value > 59) ? `${value / 60 | 0}h ${value % 60}min` : `${value}min`;
+  }
 }

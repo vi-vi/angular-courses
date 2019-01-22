@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 
 import { LayoutModule } from './layout/layout.module';
 import { PagesRoutingModule } from './pages/pages-routing.module';
+import { CoursesService } from './services/courses.service';
+import { AuthorizationService } from './services/authorization.service';
 
 // import { LoginComponent } from './pages/login/login.component';
 // import { CourseListPageComponent } from './pages/course-list-page/course-list-page.component';
@@ -41,7 +43,7 @@ import { PagesRoutingModule } from './pages/pages-routing.module';
     LayoutModule,
     PagesRoutingModule
   ],
-  providers: [],
+  providers: [CoursesService, AuthorizationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

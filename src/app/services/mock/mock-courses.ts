@@ -1,4 +1,4 @@
-import { ICourseItem } from '../components/course-item/course-item-interface';
+import { ICourseItem } from '../../pages/course-list-page/components/course-item/course-item-interface';
 
 export const COURSES: ICourseItem[] = [
   {

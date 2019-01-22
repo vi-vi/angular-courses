@@ -22,7 +22,7 @@ class TestHostComponent {
 
   public onDeleted(id: number) {
     this.deleteCourseItemId = id;
-    console.log('delete' ,this.deleteCourseItemId);
+    console.log('delete', this.deleteCourseItemId);
   }
 }
 
@@ -30,7 +30,7 @@ class TestHostComponent {
 describe('CourseItemComponent', () => {
   let testHost: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
-  let testCourse = {
+  const testCourse = {
     id: 1,
     title: 'Course 1',
     creationDate: 1,
