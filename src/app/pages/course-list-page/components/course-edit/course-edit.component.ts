@@ -18,7 +18,7 @@ export class CourseEditComponent implements OnInit {
    }
 
    handlerClick() {
-     console.log(this.clickItem +=1)
+     console.log(this.clickItem += 1);
    }
 
 }

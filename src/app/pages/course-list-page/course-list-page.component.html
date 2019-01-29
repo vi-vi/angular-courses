@@ -4,10 +4,12 @@
   </app-search-form>
   <app-course-add></app-course-add>
 </div>
-<div *ngIf="!coursesToRender.length">NO DATA. FEEL FREE TO ADD NEW COURSE</div>
+<div *ngIf="!coursesToRender.length">
+  NO DATA. FEEL FREE TO ADD NEW COURSE
+</div>
 <app-course-item
   *ngFor="let course of (coursesToRender | filter:search | orderBy:'creationDate')"
   [courseItem]="course"
   (deleteEvent)="deleteCourse($event)">
 </app-course-item>
-<app-load-more></app-load-more>
+<app-load-more  *ngIf="coursesToRender.length"></app-load-more>

@@ -13,7 +13,7 @@ export class LoadMoreComponent implements OnInit {
   }
 
   handleClick() {
-    console.log("Click More!")
+    console.log('Click More!');
   }
 
 }

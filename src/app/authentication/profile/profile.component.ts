@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IProfile } from './profile-interface'
+import { IProfile } from './profile-interface';
 
 @Component({
   selector: 'app-profile',
@@ -18,9 +18,9 @@ export class ProfileComponent implements OnInit {
       id: 1,
       firstName: 'Sherlock',
       lastName: 'Holmes'
-    }
+    };
 
-    console.log('ProfileComponent', this.userInf)
+    console.log('ProfileComponent', this.userInf);
   }
 
 }

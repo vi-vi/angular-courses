@@ -5,6 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class OrderByPipe implements PipeTransform {
     transform(value: any[], field: string) {
-      return value.sort( (a, b) => b[field] - a[field] )
+      return value.sort( (a, b) => b[field] - a[field] );
     }
 }

@@ -8,6 +8,7 @@ import { ICourseItem } from './course-item-interface';
   styleUrls: ['./course-item.component.css']
 })
 export class CourseItemComponent implements OnInit {
+  private isActive = false;
 
   @Input() courseItem: ICourseItem;
   @Output() deleteEvent = new EventEmitter<number>();
@@ -19,13 +20,11 @@ export class CourseItemComponent implements OnInit {
 
   }
 
-  isActive: boolean = false;
-
-  activeStar(e){
+  activeStar(e) {
     this.isActive = !this.isActive;
   }
 
   deleteHandler(id: number) {
-    this.deleteEvent.emit(id)
+    this.deleteEvent.emit(id);
   }
 }
