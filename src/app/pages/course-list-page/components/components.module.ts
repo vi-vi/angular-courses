@@ -7,7 +7,7 @@ import { CourseItemComponent } from './course-item/course-item.component';
 import { CourseEditComponent } from './course-edit/course-edit.component';
 import { LoadMoreComponent } from './load-more/load-more.component';
 import { CourseBorderColorDirective } from './course-item/course-highlight.directive';
-import { DurationPipe } from './course-item/duration.pipe';
+import { SharedModule } from '../../../shared/shared.module';
 
 // Module for global layout components like header, footer, breadcrumbs
 @NgModule({
@@ -17,12 +17,12 @@ import { DurationPipe } from './course-item/duration.pipe';
     CourseItemComponent,
     CourseEditComponent,
     LoadMoreComponent,
-    CourseBorderColorDirective,
-    DurationPipe
+    CourseBorderColorDirective
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   exports: [
     CommonModule,

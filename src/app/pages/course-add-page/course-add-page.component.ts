@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course-add-page.component.css']
 })
 export class CourseAddPageComponent implements OnInit {
+  public formData = {
+    title: '',
+    description: '',
+    date: '',
+    duration: ''
+  };
 
   constructor() { }
 
   ngOnInit() {
+  }
+  handlerClick() {
+    console.log('click');
   }
 
 }
