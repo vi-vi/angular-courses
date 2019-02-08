@@ -1,3 +1,26 @@
-<p>
-  course-add-page works!
-</p>
+<form class="needs-validation" novalidate="">
+  <div>
+    <label for="title">Title</label>
+    <input [(ngModel)]="formData.title" name="title" type="text" class="form-control" id="title" placeholder="Title">
+  </div>
+
+  <div>
+    <label for="text-area">Description</label>
+    <textarea [(ngModel)]="formData.description" name="description" class="form-control" id="text-area"></textarea>
+  </div>
+  <div>
+    <app-date></app-date>
+  </div>
+  <div>
+    <app-duration [data]="formData"></app-duration>
+    <span> {{ formData.duration | duration }}</span>
+  </div>
+
+  <div>
+    <label for="authors">Authors</label>
+    <input type="text" class="form-control" id="authors">
+  </div>
+
+  <button class="btn btn-light my-2" type="button" (click)="handlerClick()">Save</button>
+  <button class="btn btn-light my-2" type="button" (click)="handlerClick()">Cancel</button>
+</form>
