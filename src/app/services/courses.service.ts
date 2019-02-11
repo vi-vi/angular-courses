@@ -18,9 +18,23 @@ export class CoursesService {
 
   createCourse() {}
 
-  getItemById() {}
+  getItemById(id) {
+    return this.courses.find(course  =>  id === course.id);
+  }
 
-  updateItem() {}
+  getCopyById(id) {
+    const course = this.getItemById(id);
+    const copy = Object.assign({}, course);
+
+    return copy;
+  }
+
+  updateItem(copy) {
+    const index = this.courses.findIndex(course => {
+      return course.id === copy.id;
+    });
+    this.courses[index] = copy;
+  }
 
   removeItem(id) {
     return this.courses = this.courses.filter(course  =>  id !== course.id);

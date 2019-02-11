@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ParamMap } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-course-edit',
@@ -7,18 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseEditComponent implements OnInit {
   clickItem: number;
+  @Input() courseId: number;
 
-   constructor() {
-       console.log(`new - clickItem is ${this.clickItem}`);
-   }
+   constructor(
+     private router: Router
+   ) { }
 
    ngOnInit() {
-     this.clickItem = 10;
-       console.log(`ngOnInit  - clickItem is ${this.clickItem}`);
+
    }
 
    handlerClick() {
-     console.log(this.clickItem += 1);
+     this.router.navigate([`/courses/${this.courseId}/edit`]);
    }
 
 }

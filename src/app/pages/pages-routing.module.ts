@@ -7,11 +7,18 @@ import { CourseAddPageComponent } from './course-add-page/course-add-page.compon
 import { CourseEditPageComponent } from './course-edit-page/course-edit-page.component';
 import { SharedModule } from './../shared/shared.module';
 import { ComponentsModule } from './course-list-page/components/components.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LayoutModule } from '../layout/layout.module';
+import { RouteGuard } from '../shared/guard/route.guard'
+
 
 const appRoutes: Routes = [
-  { path: 'courses', component: CourseListPageComponent},
+  { path: '', component: CourseListPageComponent, pathMatch: 'full' },
+  { path: 'courses', component: CourseListPageComponent, canActivate: [ RouteGuard ] },
   { path: 'login', component: LoginPageComponent},
-  { path: 'create_course', component: CourseAddPageComponent}
+  { path: 'new', component: CourseAddPageComponent, canActivate: [ RouteGuard ] },
+  { path: 'courses/:id/edit', component: CourseEditPageComponent, canActivate: [ RouteGuard ] },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 // Set of page components assigned to routes
@@ -19,15 +26,18 @@ const appRoutes: Routes = [
   declarations: [
     LoginPageComponent,
     CourseAddPageComponent,
-    CourseEditPageComponent
+    CourseEditPageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
     CourseListPageModule,
     SharedModule,
     ComponentsModule,
-    FormsModule
+    FormsModule,
+    LayoutModule
   ],
+  providers: [ RouteGuard ],
   exports: [ RouterModule ]
 })
 

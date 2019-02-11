@@ -1,3 +1,27 @@
-<p>
-  course-edit-page works!
-</p>
+<app-breadcrumbs [courseInf]="course"></app-breadcrumbs>
+<form class="needs-validation" novalidate="">
+  <div>
+    <label for="title">Title</label>
+    <input [(ngModel)]="course.title" name="title" type="text" class="form-control" id="title" placeholder="Title">
+  </div>
+
+  <div>
+    <label for="text-area">Description</label>
+    <textarea [(ngModel)]="course.description" name="description" class="form-control" id="text-area"></textarea>
+  </div>
+  <div>
+    <app-date></app-date>
+  </div>
+  <div>
+    <app-duration [data]="course"></app-duration>
+    <span> {{ course.duration | duration }}</span>
+  </div>
+
+  <div>
+    <label for="authors">Authors</label>
+    <input type="text" class="form-control" id="authors">
+  </div>
+
+  <button class="btn btn-light my-2" type="button" (click)="handlerSave()">Save</button>
+  <button class="btn btn-light my-2" type="button" (click)="handlerCancel()">Cancel</button>
+</form>

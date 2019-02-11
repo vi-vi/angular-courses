@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthorizationService } from '../../services/authorization.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,10 @@ import { AuthorizationService } from '../../services/authorization.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private authorizationService: AuthorizationService) { }
+  constructor(
+    private authorizationService: AuthorizationService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -17,7 +21,7 @@ export class LoginPageComponent implements OnInit {
   login(event) {
     event.preventDefault();
     this.authorizationService.login();
-    console.log('logged in successfully', localStorage);
+    this.router.navigate([`/courses`]);
   }
 
 }

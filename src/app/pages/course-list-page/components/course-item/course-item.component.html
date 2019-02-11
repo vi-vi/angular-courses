@@ -15,7 +15,7 @@
       <p class="description">description: {{courseItem.description}}</p>
     </div>
     <div class="float-right">
-      <app-course-edit></app-course-edit>
+      <app-course-edit [courseId]="courseItem.id"></app-course-edit>
       <button class="btn btn-dark my-2" type="button" (click)="deleteHandler(courseItem.id)">Remove</button>
     </div>
   </div>

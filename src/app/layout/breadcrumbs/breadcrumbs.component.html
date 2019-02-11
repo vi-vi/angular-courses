@@ -1,5 +1,5 @@
-<nav aria-label="breadcrumb">
+<nav aria-label="breadcrumb" *ngIf="checkRoute()">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">Courses</li>
+    <li class="breadcrumb-item active" aria-current="page">{{name}}</li>
   </ol>
 </nav>
