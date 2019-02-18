@@ -1,32 +1,38 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorizationService {
-  private key = 'user';
-  private userInfo = [{'name': 'vi', 'email': 'vivi@gmail.com'}];
-  private session;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http: HttpClient) { }
 
-  login() {
-    localStorage.setItem('userInfo', JSON.stringify(this.userInfo));
-    localStorage.isLogged = true;
+  login(login, password) {
+    // return this.http.post<ICourseItem[]>(`http://localhost:3004/login`, );
+
+    this.http.post(`http://localhost:3004/auth/login`, {
+      login,
+      password
+    }).subscribe((response:any) => {
+      localStorage.setItem('userToken', JSON.stringify(response.token));
+      this.router.navigate([`/courses`])
+    })
   }
 
   logout() {
-    localStorage.removeItem('userInfo');
-    localStorage.isLogged = false;
+    this.http.get(`http://localhost:3004/auth/logout`).subscribe((response) => {
+      localStorage.removeItem('userToken');
+    })
   }
 
-  getUserInfo() {
-    return JSON.parse(localStorage.getItem('userInfo'));
+  getUserToken() {
+    return JSON.parse(localStorage.getItem('userToken'));
   }
 
   isAuthenticated() {
-    return JSON.parse(localStorage.isLogged);
+    return !!this.getUserToken();
   }
 
   protectRoute() {

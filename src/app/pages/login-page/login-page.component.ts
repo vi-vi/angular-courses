@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
+  private login: string;
+  private password: string;
+
 
   constructor(
     private authorizationService: AuthorizationService,
@@ -18,9 +21,9 @@ export class LoginPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(event) {
+  loginHandler(event) {
     event.preventDefault();
-    this.authorizationService.login();
+    this.authorizationService.login(this.login, this.password);
     this.router.navigate([`/courses`]);
   }
 

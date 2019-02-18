@@ -8,10 +8,10 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!authorizationservice.isAuthenticated()">
         <a class="nav-link" href="/login">User login</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authorizationservice.isAuthenticated()">
         <button type="button" class="btn btn-light" (click)="logOut()">Log off</button>
       </li>
     </ul>

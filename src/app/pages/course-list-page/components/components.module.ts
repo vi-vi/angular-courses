@@ -5,7 +5,6 @@ import { SearchFormComponent } from './search-form/search-form.component';
 import { CourseAddComponent } from './course-add/course-add.component';
 import { CourseItemComponent } from './course-item/course-item.component';
 import { CourseEditComponent } from './course-edit/course-edit.component';
-import { LoadMoreComponent } from './load-more/load-more.component';
 import { CourseBorderColorDirective } from './course-item/course-highlight.directive';
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -16,7 +15,6 @@ import { SharedModule } from '../../../shared/shared.module';
     CourseAddComponent,
     CourseItemComponent,
     CourseEditComponent,
-    LoadMoreComponent,
     CourseBorderColorDirective
   ],
   imports: [
@@ -29,8 +27,7 @@ import { SharedModule } from '../../../shared/shared.module';
     SearchFormComponent,
     CourseAddComponent,
     CourseItemComponent,
-    CourseEditComponent,
-    LoadMoreComponent
+    CourseEditComponent
   ]
 })
 export class ComponentsModule { }

@@ -4,6 +4,8 @@ import { FilterPipe } from './filter.pipe';
 import { CoursesService } from '../../services/courses.service';
 import { AuthorizationService } from '../../services/authorization.service';
 
+const COURSES_PER_PAGE = 3;
+
 @Component({
   selector: 'app-course-list-page',
   templateUrl: './course-list-page.component.html',
@@ -11,6 +13,7 @@ import { AuthorizationService } from '../../services/authorization.service';
 })
 export class CourseListPageComponent implements OnInit {
   private filter: FilterPipe;
+  private page: number;
   courses: ICourseItem[];
   coursesToRender: ICourseItem[];
   search: string;
@@ -24,27 +27,54 @@ export class CourseListPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.courseservice.getList().subscribe(
+    this.page = 0;
+    this.loadCourses();
+  }
+
+  resetPage() {
+    this.page = 0;
+  }
+
+  loadCourses() {
+    this.page = 0;
+
+    this.courseservice.getList(this.page, COURSES_PER_PAGE, this.search).subscribe(
       (data: ICourseItem[]) => {
-        this.courses = data
+        this.courses = data;
         this.coursesToRender = this.courses;
       }
     );
+
   }
+
+  loadMoreCourses() {
+    this.page++;
+
+    this.courseservice.getList(this.page, COURSES_PER_PAGE, this.search).subscribe(
+      (data: ICourseItem[]) => {
+        this.courses = [ ...this.courses, ...data ];
+        this.coursesToRender = this.courses;
+      }
+    );
+
+  }
+
 
   filterBy(value: string) {
     this.search = value;
-    this.filterApply();
-  }
-
-  filterApply() {
-    this.coursesToRender = this.filter.transform(this.courses, this.search);
+    this.resetPage();
+    this.loadCourses();
   }
 
   deleteCourse(id: number) {
     if (confirm('Do you really want to delete this course?')) {
-      this.courses = this.courseservice.removeItem(id);
-      this.filterApply();
+      this.courseservice.removeItem(id).subscribe(
+        () => {
+          this.loadCourses();
+          // this.filterApply();
+        }
+      );
+
     }
   }
 }

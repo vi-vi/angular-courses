@@ -13,7 +13,7 @@ import { RouteGuard } from '../shared/guard/route.guard'
 
 
 const appRoutes: Routes = [
-  { path: '', component: CourseListPageComponent, pathMatch: 'full' },
+  { path: '', redirectTo: '/courses', pathMatch: 'full' },
   { path: 'courses', component: CourseListPageComponent, canActivate: [ RouteGuard ] },
   { path: 'login', component: LoginPageComponent},
   { path: 'new', component: CourseAddPageComponent, canActivate: [ RouteGuard ] },
