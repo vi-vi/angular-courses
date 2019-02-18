@@ -2,6 +2,10 @@
   margin-bottom: 50px;
 }
 
+.main-content {
+  width: 800px;
+}
+
 .star {
   display: inline-block;
   height: 30px;

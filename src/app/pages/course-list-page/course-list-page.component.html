@@ -1,3 +1,4 @@
+<app-breadcrumbs></app-breadcrumbs>
 <div class="search-block clearfix">
   <app-search-form
     (filterByEvent)="filterBy($event)">
@@ -8,7 +9,7 @@
   NO DATA. FEEL FREE TO ADD NEW COURSE
 </div>
 <app-course-item
-  *ngFor="let course of (coursesToRender | filter:search | orderBy:'creationDate')"
+  *ngFor="let course of (coursesToRender | orderBy:'creationDate')"
   [courseItem]="course"
   (deleteEvent)="deleteCourse($event)">
 </app-course-item>

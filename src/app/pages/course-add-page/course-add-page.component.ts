@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorizationService } from '../../services/authorization.service';
 
 @Component({
   selector: 'app-course-add-page',
@@ -15,8 +16,8 @@ export class CourseAddPageComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
   handlerClick() {
     console.log('click');
   }

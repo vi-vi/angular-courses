@@ -1,21 +1,17 @@
-<div class="card" [appBorderColor]="courseItem.creationDate">
+<div class="card" [appBorderColor]="courseItem.date">
   <div class="card-header">
-    {{courseItem.title | uppercase }}
-    <div
-      class="star"
-      *ngIf="courseItem.topRated"
-      [ngClass]="isActive ? 'active' : 'default'"
-      (click)="activeStar()">
-    </div>
+    {{courseItem.name | uppercase }}
+    <div class="star default" *ngIf="courseItem.isTopRated">
+  </div>
   </div>
   <div class="card-body clearfix">
-    <div class="float-left">
-      <p class="date">creationDate: {{courseItem.creationDate | date}}</p>
-      <p class="duration">duration: {{courseItem.duration | duration}}</p>
+    <div class="main-content float-left">
+      <p class="date">creationDate: {{courseItem.date | date}}</p>
+      <p class="duration">duration: {{courseItem.length | duration}}</p>
       <p class="description">description: {{courseItem.description}}</p>
     </div>
     <div class="float-right">
-      <app-course-edit></app-course-edit>
+      <app-course-edit [courseId]="courseItem.id"></app-course-edit>
       <button class="btn btn-dark my-2" type="button" (click)="deleteHandler(courseItem.id)">Remove</button>
     </div>
   </div>

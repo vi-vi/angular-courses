@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class AuthorizationService {
   private userInfo = [{'name': 'vi', 'email': 'vivi@gmail.com'}];
   private session;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   login() {
     localStorage.setItem('userInfo', JSON.stringify(this.userInfo));
@@ -25,6 +26,10 @@ export class AuthorizationService {
   }
 
   isAuthenticated() {
-    return localStorage.isLogged;
+    return JSON.parse(localStorage.isLogged);
+  }
+
+  protectRoute() {
+    !this.isAuthenticated() && this.router.navigate([`/login`]);
   }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./breadcrumbs.component.css']
 })
 export class BreadcrumbsComponent implements OnInit {
+  private name;
+  @Input() courseInf: any;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  checkRoute() {
+    return (this.router.url === '/courses') && (this.name = 'Courses') ||
+    (this.router.url === `/courses/${this.courseInf.id}/edit`) && (this.name = `Courses / ${this.courseInf && this.courseInf.name}`);
   }
 
 }

@@ -11,8 +11,4 @@ export class AppComponent {
   title = 'Angular courses';
 
   constructor(private router: Router) { }
-
-  isVisible() {
-    return this.router.url !== '/login';
-  }
 }
