@@ -19,12 +19,17 @@ export class CourseListPageComponent implements OnInit {
     private courseservice: CoursesService
   ) {
     this.filter = new FilterPipe();
+    this.courses = this.coursesToRender = [];
+    this.search = '';
   }
 
   ngOnInit() {
-    this.courses = this.courseservice.getList();
-    this.coursesToRender = this.courses;
-    this.search = '';
+    this.courseservice.getList().subscribe(
+      (data: ICourseItem[]) => {
+        this.courses = data
+        this.coursesToRender = this.courses;
+      }
+    );
   }
 
   filterBy(value: string) {

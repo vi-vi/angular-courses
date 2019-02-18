@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CoursesService } from '../../services/courses.service';
 import { AuthorizationService } from '../../services/authorization.service';
+import { ICourseItem } from '../pages/course-list-page/components/course-item/course-item-interface';
 
 @Component({
   selector: 'app-course-edit-page',
@@ -9,7 +10,8 @@ import { AuthorizationService } from '../../services/authorization.service';
   styleUrls: ['./course-edit-page.component.css']
 })
 export class CourseEditPageComponent implements OnInit {
-  private course;
+  private course: ICourseItem;
+  private isLoading: boolean;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -21,7 +23,14 @@ export class CourseEditPageComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       id = +params.get('id');
     });
-    this.course = this.courseservice.getCopyById(id);
+
+    this.isLoading = true;
+    this.courseservice.getItemById(id).subscribe(
+      (data: ICourseItem) => {
+        this.course = data
+        this.isLoading = false;
+      }
+    );
   }
 
   handlerSave() {

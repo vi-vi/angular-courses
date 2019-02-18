@@ -17,7 +17,7 @@ export class BreadcrumbsComponent implements OnInit {
 
   checkRoute() {
     return (this.router.url === '/courses') && (this.name = 'Courses') ||
-    (this.router.url === `/courses/${this.courseInf.id}/edit`) && (this.name = `Courses / ${this.courseInf.title}`);
+    (this.router.url === `/courses/${this.courseInf.id}/edit`) && (this.name = `Courses / ${this.courseInf && this.courseInf.name}`);
   }
 
 }
