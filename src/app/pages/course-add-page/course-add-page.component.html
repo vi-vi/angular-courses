@@ -1,7 +1,7 @@
 <form class="needs-validation" novalidate="">
   <div>
     <label for="title">Title</label>
-    <input [(ngModel)]="formData.title" name="title" type="text" class="form-control" id="title" placeholder="Title">
+    <input [(ngModel)]="formData.name" name="title" type="text" class="form-control" id="title" placeholder="Title">
   </div>
 
   <div>
@@ -13,7 +13,7 @@
   </div>
   <div>
     <app-duration [data]="formData"></app-duration>
-    <span> {{ formData.duration | duration }}</span>
+    <span> {{ formData.length | duration }}</span>
   </div>
 
   <div>

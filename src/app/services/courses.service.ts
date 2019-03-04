@@ -13,11 +13,19 @@ export class CoursesService {
     this.courses = COURSES;
   }
 
-  getList() {
-    return this.http.get<ICourseItem[]>(`http://localhost:3004/courses`);
+  getList(page, count, textFragment = '') {
+    return this.http.get<ICourseItem[]>(`http://localhost:3004/courses`, {
+      params: {
+        'start': String(page*count),
+        'count': String(count),
+        textFragment
+      }
+    });
   }
 
-  createCourse() {}
+  createCourse(data) {
+    return this.http.post<ICourseItem>(`http://localhost:3004/courses/`, data);
+  }
 
   getItemById(id) {
     return this.http.get<ICourseItem>(`http://localhost:3004/courses/`+id);
@@ -32,13 +40,15 @@ export class CoursesService {
   }
 
   updateItem(copy) {
-    const index = this.courses.findIndex(course => {
-      return course.id === copy.id;
-    });
-    this.courses[index] = copy;
+    return this.http.put<ICourseItem>(`http://localhost:3004/courses/`+copy.id, copy);
+    // const index = this.courses.findIndex(course => {
+    //   return course.id === copy.id;
+    // });
+    // this.courses[index] = copy;
   }
 
   removeItem(id) {
-    return this.courses = this.courses.filter(course  =>  id !== course.id);
+    return this.http.delete<ICourseItem>(`http://localhost:3004/courses/`+id);
+    // return this.courses = this.courses.filter(course  =>  id !== course.id);
   }
 }

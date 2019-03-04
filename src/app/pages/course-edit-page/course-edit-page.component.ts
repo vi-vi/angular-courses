@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CoursesService } from '../../services/courses.service';
 import { AuthorizationService } from '../../services/authorization.service';
-import { ICourseItem } from '../pages/course-list-page/components/course-item/course-item-interface';
+import { ICourseItem } from '../course-list-page/components/course-item/course-item-interface';
 
 @Component({
   selector: 'app-course-edit-page',
@@ -34,8 +34,9 @@ export class CourseEditPageComponent implements OnInit {
   }
 
   handlerSave() {
-    this.courseservice.updateItem(this.course);
-    this.router.navigate(['/courses']);
+    this.courseservice.updateItem(this.course).subscribe(
+      () => this.router.navigate(['/courses'])
+    );
   }
 
   handlerCancel() {

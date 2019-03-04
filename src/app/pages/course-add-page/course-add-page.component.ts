@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthorizationService } from '../../services/authorization.service';
+import { CoursesService } from '../../services/courses.service'
 
 @Component({
   selector: 'app-course-add-page',
@@ -8,18 +10,25 @@ import { AuthorizationService } from '../../services/authorization.service';
 })
 export class CourseAddPageComponent implements OnInit {
   public formData = {
-    title: '',
+    name: '',
     description: '',
     date: '',
-    duration: ''
+    length: 0
   };
 
-  constructor() { }
+  constructor(
+    private courseservice: CoursesService,
+    private router: Router
+  ) { }
 
   ngOnInit() {}
 
   handlerClick() {
-    console.log('click');
+    this.courseservice.createCourse(this.formData).subscribe(
+      () => {
+        this.router.navigate(['/courses'])
+      }
+    )
   }
 
 }
