@@ -3,6 +3,7 @@ import { ICourseItem } from './components/course-item/course-item-interface';
 import { FilterPipe } from './filter.pipe';
 import { CoursesService } from '../../services/courses.service';
 import { AuthorizationService } from '../../services/authorization.service';
+import { SearchTokenSubject } from '../../shared/observable/search-token-obs';
 
 const COURSES_PER_PAGE = 3;
 
@@ -29,6 +30,10 @@ export class CourseListPageComponent implements OnInit {
   ngOnInit() {
     this.page = 0;
     this.loadCourses();
+    SearchTokenSubject.subscribe(v => {
+      console.log('test', v);
+      this.filterBy(v)
+    })
   }
 
   resetPage() {
