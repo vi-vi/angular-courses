@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthorizationService } from '../../services/authorization.service';
+import { ProfileService } from '../../services/profile.service'
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,9 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  private name = ''
 
   constructor(
     private authorizationservice: AuthorizationService,
+    private profileservice: ProfileService,
     private router: Router
   ) { }
 

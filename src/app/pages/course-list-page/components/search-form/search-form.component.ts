@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { SearchTokenSubject } from '../../../../shared/observable/search-token-obs'
 
 @Component({
   selector: 'app-search-form',
@@ -6,20 +7,14 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
   styleUrls: ['./search-form.component.css']
 })
 export class SearchFormComponent implements OnInit {
-
-  // @Input search: string;
-  @Output() filterByEvent = new EventEmitter<string>();
-
   constructor() {
   }
 
   ngOnInit() {
   }
 
-  filterBy( value: string ) {
-    this.filterByEvent.emit(value);
-    // this.search = value;
-    console.log(value);
+  onKeyUp( value: string ) {
+    SearchTokenSubject.next(value);
   }
 
 }

@@ -1,8 +1,6 @@
 <app-breadcrumbs></app-breadcrumbs>
 <div class="search-block clearfix">
-  <app-search-form
-    (filterByEvent)="filterBy($event)">
-  </app-search-form>
+  <app-search-form></app-search-form>
   <app-course-add></app-course-add>
 </div>
 <div *ngIf="!coursesToRender.length">
