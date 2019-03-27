@@ -21,6 +21,11 @@ export class AuthorizationService {
     })
   }
 
+  login2(creds) {
+    return this.http.post(`http://localhost:3004/auth/login`, creds)
+  }
+
+
   logout() {
     this.http.get(`http://localhost:3004/auth/logout`).subscribe((response) => {
       localStorage.removeItem('userToken');
