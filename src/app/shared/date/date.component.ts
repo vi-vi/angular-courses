@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup , Validators , FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-date',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./date.component.css']
 })
 export class DateComponent implements OnInit {
-
+  date = new FormControl('');
   constructor() { }
 
   ngOnInit() {

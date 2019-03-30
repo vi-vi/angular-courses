@@ -1,12 +1,14 @@
-<form class="needs-validation" novalidate="">
+<form class="needs-validation" novalidate="" [formGroup]="addForm">
   <div>
     <label for="title">Title</label>
-    <input [(ngModel)]="formData.name" name="title" type="text" class="form-control" id="title" placeholder="Title">
+    <input [(ngModel)]="formData.name" formControlName="title" name="title" type="text" class="form-control" id="title" placeholder="Title">
+    <div class="error-mes" *ngIf="addForm.get('title').invalid  && (addForm.get('title').dirty || addForm.get('title').touched)"> name required with max 50 character. </div>
   </div>
 
   <div>
     <label for="text-area">Description</label>
-    <textarea [(ngModel)]="formData.description" name="description" class="form-control" id="text-area"></textarea>
+    <textarea [(ngModel)]="formData.description" formControlName="description" name="description" class="form-control" id="text-area"></textarea>
+    <div class="error-mes" *ngIf="addForm.get('description').invalid  && (addForm.get('description').dirty || addForm.get('description').touched)"> description required with max 500 character. </div>
   </div>
   <div>
     <app-date></app-date>
@@ -18,9 +20,9 @@
 
   <div>
     <label for="authors">Authors</label>
-    <input type="text" class="form-control" id="authors">
+    <input type="text" formControlName="authors" class="form-control" id="authors">
   </div>
 
-  <button class="btn btn-light my-2" type="button" (click)="handlerClick()">Save</button>
+  <button class="btn btn-light my-2" type="button" (click)="handlerClick()" [disabled]="addForm.invalid">Save</button>
   <button class="btn btn-light my-2" type="button" (click)="handlerClick()">Cancel</button>
 </form>

@@ -10,3 +10,8 @@ form {
 button {
   margin-right: 10px;
 }
+
+.error-mes{
+  font-size: 12px;
+  color: #a94442;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthorizationService } from '../../services/authorization.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup , Validators , FormControl } from '@angular/forms';
 
 
 @Component({
@@ -11,6 +12,11 @@ import { Router } from '@angular/router';
 export class LoginPageComponent implements OnInit {
   private login: string;
   private password: string;
+
+  loginForm = new FormGroup({
+    login: new FormControl(),
+    password: new FormControl()
+  });
 
 
   constructor(

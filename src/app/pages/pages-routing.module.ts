@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CourseListPageModule, CourseListPageComponent } from './course-list-page/course-list-page.module';
 import { CourseAddPageComponent } from './course-add-page/course-add-page.component';
@@ -35,6 +35,7 @@ const appRoutes: Routes = [
     SharedModule,
     ComponentsModule,
     FormsModule,
+    ReactiveFormsModule,
     LayoutModule
   ],
   providers: [ RouteGuard ],

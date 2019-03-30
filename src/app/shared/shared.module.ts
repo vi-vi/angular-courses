@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DateComponent } from './date/date.component';
 import { DurationComponent } from './duration/duration.component';
 import { DurationPipe } from './pipes/duration.pipe';
+
+
 
 
 // Module for shared components like modals, tabs, btns etc
@@ -15,7 +17,8 @@ import { DurationPipe } from './pipes/duration.pipe';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     DateComponent,

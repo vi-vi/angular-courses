@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CoursesService } from '../../services/courses.service';
 import { AuthorizationService } from '../../services/authorization.service';
 import { ICourseItem } from '../course-list-page/components/course-item/course-item-interface';
+import { FormBuilder, FormGroup , Validators , FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-course-edit-page',
@@ -10,6 +11,12 @@ import { ICourseItem } from '../course-list-page/components/course-item/course-i
   styleUrls: ['./course-edit-page.component.css']
 })
 export class CourseEditPageComponent implements OnInit {
+  editForm = new FormGroup({
+    title: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    description: new FormControl('', [Validators.required, Validators.maxLength(500)]),
+    course: new FormControl(20, Validators.required)
+  });
+
   private course: ICourseItem;
   private isLoading: boolean;
   constructor(
