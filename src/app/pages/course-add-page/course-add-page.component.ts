@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthorizationService } from '../../services/authorization.service';
 import { CoursesService } from '../../services/courses.service'
+import { FormBuilder, FormGroup , Validators , FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-course-add-page',
@@ -9,6 +11,12 @@ import { CoursesService } from '../../services/courses.service'
   styleUrls: ['./course-add-page.component.css']
 })
 export class CourseAddPageComponent implements OnInit {
+  addForm = new FormGroup({
+    title: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    description: new FormControl('', [Validators.required, Validators.maxLength(500)]),
+    authors: new FormControl(20, Validators.required)
+  });
+
   public formData = {
     name: '',
     description: '',

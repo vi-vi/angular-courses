@@ -1,2 +1,3 @@
 <label for="duration">Duration</label>
-<input [(ngModel)]="data.length" class="form-control" id="duration">
+<input [(ngModel)]="data.length" [formControl]="duration" class="form-control" id="duration" pattern="[0-9]*">
+<div class="error-mes" *ngIf="duration.invalid"> Numbers only. </div>

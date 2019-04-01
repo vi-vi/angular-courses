@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -9,6 +9,8 @@ import { LayoutModule } from './layout/layout.module';
 import { PagesRoutingModule } from './pages/pages-routing.module';
 import { CoursesService } from './services/courses.service';
 import { AuthorizationService } from './services/authorization.service';
+
+import { AuthModule } from './auth/auth.module'
 
 // import { LoginComponent } from './pages/login/login.component';
 // import { CourseListPageComponent } from './pages/course-list-page/course-list-page.component';
@@ -40,10 +42,12 @@ import { AuthorizationService } from './services/authorization.service';
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     HttpClientModule,
     LayoutModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    AuthModule
   ],
   providers: [CoursesService, AuthorizationService],
   bootstrap: [AppComponent]
